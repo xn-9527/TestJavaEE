@@ -2,46 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="63e9fe87-57a9-4af7-84ef-2c68461d080f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Test27-mybatis2/lib/ant-1.9.6.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Test27-mybatis2/lib/ant-launcher-1.9.6.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Test27-mybatis2/lib/asm-5.1.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Test27-mybatis2/lib/cglib-3.2.4.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Test27-mybatis2/lib/commons-logging-1.2.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Test27-mybatis2/lib/hamcrest-core-1.3.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Test27-mybatis2/lib/javassist-3.21.0-GA.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Test27-mybatis2/lib/junit-4.12.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Test27-mybatis2/lib/log4j-1.2.17.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Test27-mybatis2/lib/log4j-api-2.3.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Test27-mybatis2/lib/log4j-core-2.3.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Test27-mybatis2/lib/mybatis-3.4.2.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Test27-mybatis2/lib/mysql-connector-java-5.1.40.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Test27-mybatis2/lib/ognl-3.1.12.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Test27-mybatis2/lib/slf4j-api-1.7.22.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Test27-mybatis2/lib/slf4j-log4j12-1.7.22.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Test27-mybatis2/out/production/Test27-mybatis2/org/sang/Test.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Test27-mybatis2/out/production/Test27-mybatis2/org/sang/bean/User.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Test27-mybatis2/out/production/Test27-mybatis2/org/sang/db/DBUtils.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Test27-mybatis2/out/production/Test27-mybatis2/org/sang/db/UserMapper.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Test27-mybatis2/.idea/compiler.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Test27-mybatis2/.idea/copyright/profiles_settings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Test27-mybatis2/.idea/libraries/ant_1_9_6.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Test27-mybatis2/.idea/libraries/hamcrest_core_1_3.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Test27-mybatis2/.idea/libraries/junit_4_12.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Test27-mybatis2/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Test27-mybatis2/.idea/modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Test27-mybatis2/.idea/uiDesigner.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Test27-mybatis2/Test27-mybatis2.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Test27-mybatis2/out/production/Test27-mybatis2/log4j.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Test27-mybatis2/src/log4j.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Test27-mybatis2/src/org/sang/Test.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Test27-mybatis2/src/org/sang/bean/User.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Test27-mybatis2/src/org/sang/db/DBUtils.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Test27-mybatis2/src/org/sang/db/UserMapper.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Test27-mybatis2/test.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-    </list>
-    <list id="22ed68bb-ed3d-4ca2-8dd5-755267c3909c" name="no need" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Test27-mybatis2/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="388e7abe-6258-4461-9ba5-fa5edf65959b" name="test" comment="" />
@@ -117,7 +77,9 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -1010,7 +972,7 @@
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="63e9fe87-57a9-4af7-84ef-2c68461d080f" name="Default" comment="" />
-      <changelist id="22ed68bb-ed3d-4ca2-8dd5-755267c3909c" name="no need" comment="" />
+      <changelist id="" name="no need" comment="" />
       <changelist id="388e7abe-6258-4461-9ba5-fa5edf65959b" name="test" comment="" />
       <created>1523253237851</created>
       <option name="number" value="Default" />
@@ -1021,7 +983,7 @@
       <workItem from="1527047020760" duration="4069000" />
       <workItem from="1527057763509" duration="305000" />
       <workItem from="1527060795211" duration="1168000" />
-      <workItem from="1527063157595" duration="273000" />
+      <workItem from="1527063157595" duration="366000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1527058031975</created>
@@ -1051,11 +1013,18 @@
       <option name="project" value="LOCAL" />
       <updated>1527063416180</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="test">
+      <created>1527063505782</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1527063505782</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13230000" />
+    <option name="totallyTimeSpent" value="13323000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1526,7 +1495,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
