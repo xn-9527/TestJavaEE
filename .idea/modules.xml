@@ -30,6 +30,7 @@
       <module fileurl="file://$PROJECT_DIR$/Test7-Scope/Test7-Scope.iml" filepath="$PROJECT_DIR$/Test7-Scope/Test7-Scope.iml" />
       <module fileurl="file://$PROJECT_DIR$/Test8-EL/Test8-EL.iml" filepath="$PROJECT_DIR$/Test8-EL/Test8-EL.iml" />
       <module fileurl="file://$PROJECT_DIR$/Test9-BeanLiftCycle/Test9-BeanLiftCycle.iml" filepath="$PROJECT_DIR$/Test9-BeanLiftCycle/Test9-BeanLiftCycle.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/TestJavaEE.iml" filepath="$PROJECT_DIR$/.idea/TestJavaEE.iml" />
       <module fileurl="file://$PROJECT_DIR$/Test19-MyStarter/org.sang.mystarter.iml" filepath="$PROJECT_DIR$/Test19-MyStarter/org.sang.mystarter.iml" />
       <module fileurl="file://$PROJECT_DIR$/Test19-SpringBoot2/test19-springboot2.iml" filepath="$PROJECT_DIR$/Test19-SpringBoot2/test19-springboot2.iml" />
       <module fileurl="file://$PROJECT_DIR$/Test20-Thymeleaf1/test20-thymeleaf1.iml" filepath="$PROJECT_DIR$/Test20-Thymeleaf1/test20-thymeleaf1.iml" />
