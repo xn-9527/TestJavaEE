@@ -1,0 +1,8 @@
+.idea/*
+common/tarot-core-domain/target/*
+*.iml
+common/tarot-core-service/target/*
+common/tarot-core/target/*
+plugin/tarot-codegen/target/*
+website/tarot-home/target/*
+website/tarot-starter/target/*
