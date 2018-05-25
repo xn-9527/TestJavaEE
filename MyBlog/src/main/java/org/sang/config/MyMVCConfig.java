@@ -47,15 +47,15 @@ public class MyMVCConfig extends WebMvcConfigurerAdapter {
     public BasicDataSource dataSource() {
 //        System.out.println("driver:"+dbConfig.driver);
         BasicDataSource dataSource = new BasicDataSource();
-        dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://localhost:3306/blog?useUnicode=true&characterEncoding=UTF-8");
-        dataSource.setUsername("root");
-        dataSource.setPassword("sang");
-//        dataSource.setInitialSize(initialSize);
-//        dataSource.setMaxActive(maxActive);
-//        dataSource.setMaxIdle(maxIdle);
-//        dataSource.setMinIdle(minIdle);
-//        dataSource.setMaxWait(maxWait);
+        dataSource.setDriverClassName(dbConfig.driver);
+        dataSource.setUrl(dbConfig.url);
+        dataSource.setUsername(dbConfig.username);
+        dataSource.setPassword(dbConfig.password);
+        dataSource.setInitialSize(dbConfig.initialSize);
+        dataSource.setMaxActive(dbConfig.maxActive);
+        dataSource.setMaxIdle(dbConfig.maxIdle);
+        dataSource.setMinIdle(dbConfig.minIdle);
+        dataSource.setMaxWait(dbConfig.maxWait);
         return dataSource;
     }
 
