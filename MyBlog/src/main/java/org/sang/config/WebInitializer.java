@@ -13,6 +13,7 @@ import javax.servlet.ServletRegistration;
  * Created by sang on 17-3-8.
  */
 public class WebInitializer implements WebApplicationInitializer {
+    @Override
     public void onStartup(ServletContext servletContext) throws ServletException {
         AnnotationConfigWebApplicationContext ctx = new AnnotationConfigWebApplicationContext();
         ctx.register(MyMVCConfig.class);

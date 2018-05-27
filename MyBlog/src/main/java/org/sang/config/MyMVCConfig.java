@@ -1,22 +1,15 @@
 package org.sang.config;
 
-import org.apache.commons.dbcp.BasicDataSource;
-import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.mapper.MapperScannerConfigurer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
-import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
-
-import javax.annotation.Resource;
-import java.io.IOException;
 
 /**
  * Created by sang on 17-3-8.
@@ -25,8 +18,7 @@ import java.io.IOException;
 @EnableWebMvc
 @ComponentScan("org.sang")
 public class MyMVCConfig extends WebMvcConfigurerAdapter {
-    @Resource
-    DBConfig dbConfig;
+
     @Bean
     public InternalResourceViewResolver viewResolver() {
         InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
@@ -43,48 +35,6 @@ public class MyMVCConfig extends WebMvcConfigurerAdapter {
         registry.addResourceHandler("/static/**").addResourceLocations("/WEB-INF/static/");
     }
 
-    @Bean
-    public BasicDataSource dataSource() {
-//        System.out.println("driver:"+dbConfig.driver);
-        BasicDataSource dataSource = new BasicDataSource();
-        dataSource.setDriverClassName(dbConfig.driver);
-        dataSource.setUrl(dbConfig.url);
-        dataSource.setUsername(dbConfig.username);
-        dataSource.setPassword(dbConfig.password);
-        dataSource.setInitialSize(dbConfig.initialSize);
-        dataSource.setMaxActive(dbConfig.maxActive);
-        dataSource.setMaxIdle(dbConfig.maxIdle);
-        dataSource.setMinIdle(dbConfig.minIdle);
-        dataSource.setMaxWait(dbConfig.maxWait);
-        return dataSource;
-    }
-
-    @Bean
-    public SqlSessionFactoryBean sqlSessionFactoryBean() {
-        PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
-        SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
-        sqlSessionFactoryBean.setDataSource(dataSource());
-        try {
-            sqlSessionFactoryBean.setMapperLocations(resolver.getResources("classpath:mapping/*.xml"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return sqlSessionFactoryBean;
-    }
-    @Bean
-    public MapperScannerConfigurer mapperScannerConfigurer() {
-        MapperScannerConfigurer mapperScannerConfigurer = new MapperScannerConfigurer();
-        mapperScannerConfigurer.setBasePackage("org.sang.dao");
-        mapperScannerConfigurer.setSqlSessionFactoryBeanName("sqlSessionFactoryBean");
-        return mapperScannerConfigurer;
-    }
-    @Bean
-    public DataSourceTransactionManager transactionManager() {
-        DataSourceTransactionManager dataSourceTransactionManager = new DataSourceTransactionManager();
-        dataSourceTransactionManager.setDataSource(dataSource());
-        return dataSourceTransactionManager;
-    }
-
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(loginInterceptors());
@@ -94,4 +44,11 @@ public class MyMVCConfig extends WebMvcConfigurerAdapter {
         return new LoginInterceptors();
     }
 
+    @Bean
+    public MapperScannerConfigurer mapperScannerConfigurer() {
+        MapperScannerConfigurer mapperScannerConfigurer = new MapperScannerConfigurer();
+        mapperScannerConfigurer.setBasePackage("org.sang.dao");
+        mapperScannerConfigurer.setSqlSessionFactoryBeanName("sqlSessionFactoryBean");
+        return mapperScannerConfigurer;
+    }
 }

@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
  * Created by sang on 17-3-10.
  */
 public class LoginInterceptors implements HandlerInterceptor {
+    @Override
     public boolean preHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o) throws Exception {
         httpServletRequest.setCharacterEncoding("UTF-8");
         StringBuffer requestURL = httpServletRequest.getRequestURL();
@@ -26,10 +27,12 @@ public class LoginInterceptors implements HandlerInterceptor {
         }
     }
 
+    @Override
     public void postHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o, ModelAndView modelAndView) throws Exception {
 
     }
 
+    @Override
     public void afterCompletion(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o, Exception e) throws Exception {
 
     }
