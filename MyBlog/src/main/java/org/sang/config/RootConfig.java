@@ -22,7 +22,7 @@ import java.io.IOException;
 @Configuration
 @ComponentScan
 @PropertySource(value = "classpath:jdbc.properties",encoding = "UTF-8")
-public class AppConfig {
+public class RootConfig {
 
     /*
      * PropertySourcesPlaceHolderConfigurer Bean only required for @Value("{}") annotations.
