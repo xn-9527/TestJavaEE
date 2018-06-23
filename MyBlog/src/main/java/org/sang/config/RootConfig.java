@@ -1,6 +1,7 @@
 package org.sang.config;
 
 import org.apache.commons.dbcp.BasicDataSource;
+import org.apache.ibatis.datasource.pooled.PooledDataSource;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.mapper.MapperScannerConfigurer;
 import org.sang.entity.Test2;
@@ -55,6 +56,12 @@ public class RootConfig {
     public int minIdle;
     @Value("${db.maxWait}")
     public int maxWait;
+    @Value("${db.poolPingEnabled}")
+    public boolean poolPingEnabled;
+    @Value("${db.poolPingQuery}")
+    public String poolPingQuery;
+    @Value("${db.poolPingConnectionsNotUsedFor}")
+    public int poolPingConnectionsNotUsedFor;
 
     @Bean
     public Test2 tester2() {
@@ -62,8 +69,11 @@ public class RootConfig {
     }
 
 
-
-    @Bean
+    /**
+     * 这个是返回基础的dataSource，有个缺点，就是无法防止数据库连接超时(默认8小时)
+     * @return
+     */
+    /*@Bean
     public BasicDataSource dataSource() {
         System.out.println("driver:" + driver);
 
@@ -77,6 +87,23 @@ public class RootConfig {
         dataSource.setMaxIdle(maxIdle);
         dataSource.setMinIdle(minIdle);
         dataSource.setMaxWait(maxWait);
+        return dataSource;
+    }*/
+
+    /**
+     * 这个是返回pooled的dataSource，可以设置定时ping一下，防止数据库连接超时(默认8小时)
+     * @return
+     */
+    @Bean
+    public PooledDataSource dataSource() {
+        PooledDataSource dataSource = new PooledDataSource();
+        dataSource.setDriver(driver);
+        dataSource.setUrl(url);
+        dataSource.setUsername(username);
+        dataSource.setPassword(password);
+        dataSource.setPoolPingEnabled(poolPingEnabled);
+        dataSource.setPoolPingQuery(poolPingQuery);
+        dataSource.setPoolPingConnectionsNotUsedFor(poolPingConnectionsNotUsedFor);
         return dataSource;
     }
 
