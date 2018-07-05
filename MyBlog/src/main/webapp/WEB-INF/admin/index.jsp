@@ -17,7 +17,7 @@
         <!-- Default panel contents -->
         <div class="panel-heading">文章列表</div>
         <div class="panel-body">
-            <p><a class="btn btn-primary btn-sm" href="/sang/write" role="button">写博客</a></p>
+            <p><a class="btn btn-primary btn-sm" href="/chay/write" role="button">写博客</a></p>
         </div>
 
         <table class="table">
