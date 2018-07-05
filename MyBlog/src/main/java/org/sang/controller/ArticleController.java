@@ -64,24 +64,24 @@ public class ArticleController {
         return "views/detail";
     }
 
-    @RequestMapping("/sang")
+    @RequestMapping("/chay")
     public String admin(Model model) {
         model.addAttribute("articles", articleService.getFirst10Article());
         return "admin/index";
     }
 
-    @RequestMapping("/sang/login")
+    @RequestMapping("/chay/login")
     public String login() {
         return "admin/login";
     }
 
-    @RequestMapping(value = "/sang/dologin", method = RequestMethod.POST)
+    @RequestMapping(value = "/chay/dologin", method = RequestMethod.POST)
     public String doLogin(HttpServletRequest request, User user, Model model) {
         System.out.println("user.getUsername():" + user.getUsername() + ";user.getPassword():" + user.getPassword());
         if (userService.login(user.getUsername(), user.getPassword())) {
             request.getSession().setAttribute("user", user);
             model.addAttribute("user", user);
-            return "redirect:/sang";
+            return "redirect:/chay";
         } else {
             model.addAttribute("error", "用户名或密码错误");
             return "admin/login";
@@ -90,18 +90,18 @@ public class ArticleController {
 
 //    private String returnAdminIndex(Model model) {
 //        model.addAttribute("articles", articleService.getFirst10Article());
-//        return "redirect:/sang";
+//        return "redirect:/chay";
 //    }
 
-    @RequestMapping(method = RequestMethod.GET, value = "/sang/dologin")
+    @RequestMapping(method = RequestMethod.GET, value = "/chay/dologin")
     public String doLogin(HttpServletRequest request, Model model) {
         if (request.getSession().getAttribute("user") == null) {
             return "admin/login";
         }
-        return "redirect:/sang";
+        return "redirect:/chay";
     }
 
-    @RequestMapping("/sang/write")
+    @RequestMapping("/chay/write")
     public String write(Model model) {
         List<Category> categories = articleService.getCategories();
         categories.remove(0);
@@ -109,23 +109,23 @@ public class ArticleController {
         return "admin/write";
     }
 
-    @RequestMapping(value = "/sang/write", method = RequestMethod.POST)
+    @RequestMapping(value = "/chay/write", method = RequestMethod.POST)
     public String write(Article article) {
         if (article.getId() == 0l) {
             articleService.writeBlog(article);
         } else {
             articleService.updateBlog(article);
         }
-        return "redirect:/sang";
+        return "redirect:/chay";
     }
 
-    @RequestMapping("/sang/delete/{id}")
+    @RequestMapping("/chay/delete/{id}")
     public String delete(@PathVariable("id") Long id) {
         articleService.deleteArticleById(id);
-        return "redirect:/sang";
+        return "redirect:/chay";
     }
 
-    @RequestMapping("/sang/update/{id}")
+    @RequestMapping("/chay/update/{id}")
     public String update(@PathVariable("id") Long id, Model model) {
         Article article = articleService.getArticleById(id);
         model.addAttribute("article", article);

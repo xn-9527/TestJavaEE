@@ -32,8 +32,8 @@
                     <td>${article.id}</td>
                     <td>${article.title}</td>
                     <td>${article.summary}</td>
-                    <td><a href="/sang/update/${article.id}">修改</a></td>
-                    <td><a href="/sang/delete/${article.id}">删除</a></td>
+                    <td><a href="/chay/update/${article.id}">修改</a></td>
+                    <td><a href="/chay/delete/${article.id}">删除</a></td>
                 </tr>
             </c:forEach>
         </table>

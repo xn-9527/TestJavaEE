@@ -14,7 +14,7 @@
 <body>
 <div class="container">
 
-    <form class="form-signin" action="/sang/dologin" method="post">
+    <form class="form-signin" action="/chay/dologin" method="post">
         <h2 class="form-signin-heading">请登录</h2>
         <div><%=request.getAttribute("error")%></div>
         <label for="inputEmail" class="sr-only">请输入用户名</label>

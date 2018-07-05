@@ -16,7 +16,7 @@
 </head>
 <body>
 <div class="container">
-    <form method="post" action="/sang/write">
+    <form method="post" action="/chay/write">
         <br>
         <br>
         <div class="row">
