@@ -17,17 +17,17 @@ public interface ArticleDao {
 
     public List<Article> getFirst10Article();
 
-    public List<Article> getArticlesByCategoryName(Long categoryId);
+    public List<Article> getArticlesByCategoryName(@Param("categoryId")Long categoryId);
 
     public List<Category> getCategories();
 
     public void writeBlog(Article article);
 
-    public Long getCategoryIdByName(String name);
+    public Long getCategoryIdByName(@Param("name")String name);
 
-    public void deleteArticleById(Long id);
+    public void deleteArticleById(@Param("id")Long id);
 
     public void updateArticleById(Article article);
 
-    public Category getCategoryById(Long id);
+    public Category getCategoryById(@Param("id")Long id);
 }

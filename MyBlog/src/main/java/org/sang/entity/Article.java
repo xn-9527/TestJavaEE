@@ -1,5 +1,7 @@
 package org.sang.entity;
 
+import javax.persistence.Column;
+
 /**
  * Created by sang on 17-3-10.
  */
@@ -10,7 +12,7 @@ public class Article {
     private String date;
     private String summary;
     private String category;
-    private long categoryId;
+     private long categoryId;
 
     public long getCategoryId() {
         return categoryId;
