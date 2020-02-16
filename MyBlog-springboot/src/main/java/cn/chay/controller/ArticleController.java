@@ -1,135 +1,87 @@
 package cn.chay.controller;
 
+import cn.chay.base.response.AjaxResult;
 import cn.chay.entity.Article;
-import cn.chay.entity.Category;
-import cn.chay.entity.User;
 import cn.chay.service.ArticleService;
-import cn.chay.service.UserService;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.bind.annotation.*;
 import org.tautua.markdownpapers.Markdown;
 import org.tautua.markdownpapers.parser.ParseException;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
 import java.io.StringReader;
 import java.io.StringWriter;
 import java.util.List;
 
 /**
- * Created by sang on 17-3-8.
+ * Created by chay on 2020-2-16.
  */
-@Controller
+@RestController
+@RequestMapping("/articles")
+@Slf4j
 public class ArticleController {
     @Resource
     private ArticleService articleService;
-    @Resource
-    private UserService userService;
 
-    @RequestMapping("/")
-    public String index(Model model) {
+    /**
+     * 获取首页10篇文章
+     *
+     * @return
+     */
+    @GetMapping
+    public AjaxResult index() {
         List<Article> articles = articleService.getFirst10Article();
-        for (Article article : articles) {
-            System.out.println(article.getCategory());
-        }
-        model.addAttribute("articles", articles);
-        return "views/index";
+        return AjaxResult.success(articles);
     }
 
-    @RequestMapping("/column/{displayName}/{category}")
-    public String column(@PathVariable("category") String category,Model model,@PathVariable("displayName") String displayName) {
-        model.addAttribute("articles", articleService.getArticlesByCategoryName(category));
-        model.addAttribute("displayName", displayName);
-        return "views/columnPage";
+    /***
+     * 获取某个分类下的文章
+     *
+     * @param category
+     * @param displayName
+     * @return
+     */
+    @GetMapping("/column/{displayName}/{category}")
+    public AjaxResult column(@PathVariable("category") String category, @PathVariable("displayName") String displayName) {
+        return AjaxResult.success(articleService.getArticlesByCategoryName(category));
     }
 
-    @RequestMapping("/detail/{id}/{category}")
-    public String detail(@PathVariable("id") Long id, Model model) {
+    /**
+     * 获取文章详情
+     *
+     * @param id
+     * @return
+     */
+    @GetMapping("/detail/{id}/{category}")
+    public AjaxResult detail(@PathVariable("id") Long id) {
         Article article = articleService.getArticleById(id);
-        System.out.println(article.getContent());
         Markdown markdown = new Markdown();
         try {
             StringWriter out = new StringWriter();
             markdown.transform(new StringReader(article.getContent()), out);
             out.flush();
             article.setContent(out.toString());
-            System.out.println("------------------");
-            System.out.println(article.getContent());
+            log.info(article.getContent());
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        model.addAttribute("article", article);
-        return "views/detail";
+        return AjaxResult.success(article);
     }
 
-    @RequestMapping("/chay")
-    public String admin(Model model) {
-        model.addAttribute("articles", articleService.getFirst10Article());
-        return "admin/index";
-    }
-
-    @RequestMapping("/chay/login")
-    public String login() {
-        return "admin/login";
-    }
-
-    @RequestMapping(value = "/chay/dologin", method = RequestMethod.POST)
-    public String doLogin(HttpServletRequest request, User user, Model model) {
-        System.out.println("user.getUsername():" + user.getUsername() + ";user.getPassword():" + user.getPassword());
-        if (userService.login(user.getUsername(), user.getPassword())) {
-            request.getSession().setAttribute("user", user);
-            model.addAttribute("user", user);
-            return "redirect:/chay";
-        } else {
-            model.addAttribute("error", "用户名或密码错误");
-            return "admin/login";
-        }
-    }
-
-//    private String returnAdminIndex(Model model) {
-//        model.addAttribute("articles", articleService.getFirst10Article());
-//        return "redirect:/chay";
-//    }
-
-    @RequestMapping(method = RequestMethod.GET, value = "/chay/dologin")
-    public String doLogin(HttpServletRequest request, Model model) {
-        if (request.getSession().getAttribute("user") == null) {
-            return "admin/login";
-        }
-        return "redirect:/chay";
-    }
-
-    @RequestMapping("/chay/write")
-    public String write(Model model) {
-        List<Category> categories = articleService.getCategories();
-        categories.remove(0);
-        model.addAttribute("categories", categories);
-        return "admin/write";
-    }
-
-    @RequestMapping(value = "/chay/write", method = RequestMethod.POST)
-    public String write(Article article) {
-        if (article.getId() == 0l) {
-            articleService.writeBlog(article);
-        } else {
-            articleService.updateBlog(article);
-        }
-        return "redirect:/chay";
-    }
-
-    @RequestMapping("/chay/delete/{id}")
-    public String delete(@PathVariable("id") Long id) {
+    @DeleteMapping("/{id}")
+    public AjaxResult delete(@PathVariable("id") Long id) {
         articleService.deleteArticleById(id);
-        return "redirect:/chay";
+        return AjaxResult.success();
     }
 
-    @RequestMapping("/chay/update/{id}")
-    public String update(@PathVariable("id") Long id, Model model) {
-        Article article = articleService.getArticleById(id);
-        model.addAttribute("article", article);
-        return "admin/write";
+    @PostMapping
+    public AjaxResult createOrUpdate(@RequestBody Article bean) {
+        if (bean.getId() == null) {
+            articleService.writeBlog(bean);
+        } else {
+
+            articleService.updateBlog(bean);
+        }
+        return AjaxResult.success();
     }
 }

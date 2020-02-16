@@ -1,6 +1,7 @@
 package cn.chay.entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 /**
  * Created by sang on 17-3-10.
@@ -11,11 +12,13 @@ public class Article {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String title;
+    @NotNull
     private String content;
     private String date;
     private String summary;
     @Transient
     private String category;
+    @NotNull
     private Long categoryId;
 
     public Long getCategoryId() {

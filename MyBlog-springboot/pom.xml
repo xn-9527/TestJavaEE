@@ -31,6 +31,10 @@
 
         <!--jsp的jstl支持-->
         <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-jasper</artifactId>
+        </dependency>
+        <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>jstl</artifactId>
             <version>1.2</version>
@@ -126,6 +130,17 @@
 
     <!--添加spring-boot的maven插件-->
     <build>
+        <resources>
+            <resource>
+                <directory>src/main/webapp</directory>
+                <!--这里必须是META-INF/resources-->
+                <targetPath>META-INF/resources</targetPath>
+                <includes>
+                    <include>**/**</include>
+                </includes>
+                <filtering>false</filtering>
+            </resource>
+        </resources>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
