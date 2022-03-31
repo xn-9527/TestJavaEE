@@ -16,7 +16,7 @@
         </dependency>
       </dependencies>-->
     <properties>
-        <spring.version>4.3.7.RELEASE</spring.version>
+        <spring.version>5.3.18</spring.version>
         <!--在maven 打包war包的时候，它会要求/WEB-INF目录下有web.xml文件,使用如下参数规避-->
         <failOnMissingWebXml>false</failOnMissingWebXml>
     </properties>
